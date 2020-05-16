@@ -1,0 +1,243 @@
+:root{
+    --main-text: white;
+    --main-font: 'Roboto Mono', monospace;
+
+}
+
+body{
+    color: white;
+    font-family: var(--main-font);
+}
+
+*{
+    padding:0;
+    margin:0;
+    box-sizing: border-box;
+}
+
+h1{
+    font-size: 3.5rem;
+    font-weight:700;
+}
+
+a{
+    color: white;
+    text-decoration:none;
+}
+li{
+    list-style:none;
+}
+.landing-section{
+    width:100vw;
+    height:100vh;
+    position:relative;
+    overflow: hidden;
+}
+
+.bg{
+    background: url('images/bg-cut-m-low-res.jpg') repeat;
+    background-position: bottom;
+    background-size:cover;
+    position: absolute;
+    width:400%;
+    max-width:4928px;
+    height:100%;
+    top:0;
+    left:0;
+    animation: bg 60s linear infinite;
+}
+
+@keyframes bg{
+    0%{
+        transform: translate3d(0,0,0);
+    }
+    100%{
+        transform: translate3d(-100vw, 0,0);
+    }
+}
+
+.overlay-left{
+    position: fixed;
+    content:"";
+    background-color: rgba(255,255,255,0.2);
+    width:100%;
+    height:100%;
+
+}
+.overlay-center{
+    position: fixed;
+    content:"";
+    background-color: rgba(255,255,255,0.3);
+    width:100%;
+    height:100%;
+
+}
+.overlay-right{
+    position: fixed;
+    content:"";
+    background-color: rgba(255,255,255,0.2);
+    width:100%;
+    height:100%;
+
+}
+
+.main-content-container{
+    position:fixed;
+    width:100%;
+    height:100%;
+    top:0;
+    left:0;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    z-index:999;
+}
+
+.main-content{
+    text-align:center;
+}
+
+.heading-text{
+    text-shadow: 0 3px 5px rgba(0,0,0,0.1);
+}
+
+.preload *{
+    opacity:0;
+    transform: translateY(50px);
+}
+
+.loaded .heading-text,
+.loaded p{
+    opacity:0;
+    transform: translateY(50px);
+    animation: fadeIn 1s linear forwards;
+}
+
+.loaded p{
+    animation-delay: 0.5s;
+}
+
+.social-media{
+    width:375px;
+    padding: 1rem;
+    margin-top:1rem;
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size:1.4rem;
+}
+
+
+.loaded .social-media a{
+    border: 1px solid white;
+    border-radius:50%;
+    height:50px;
+    width:50px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    position:relative;
+    transition: all 0.5s linear;
+    transform: translateY(50px);
+    opacity:0;
+    animation: fadeIn 1s linear forwards;
+   
+}
+.loaded .social-media a:nth-child(1){
+    animation-delay: 1s;
+}
+.loaded .social-media a:nth-child(2){
+    animation-delay: 1.3s;
+}
+.loaded .social-media a:nth-child(3){
+    animation-delay: 1.6s;
+}
+.loaded .social-media a:nth-child(4){
+    animation-delay: 1.9s;
+}
+.loaded .social-media a:nth-child(5){
+    animation-delay: 2.2s;
+}
+.loaded .social-media a:nth-child(6){
+    animation-delay: 2.5s;
+}
+
+@keyframes fadeIn{
+    0%{
+        opacity:0;
+        transform: translateY(50px);
+    }
+    80%{
+        opacity:0.7;
+        transform: translateY(-10px);
+    }
+    100%{
+        opacity:1;
+        transform: translateY(0);
+    }
+}
+
+.social-media a:after{
+    position:absolute;
+    content: "";
+    width:100%;
+    height:100%;
+    top:0;
+    left:0;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.3);
+    transition: all 0.5s;
+    transform: scale(0);
+    transform-origin: center;
+}
+
+.social-media a:hover:after{
+    transform: scale(1);
+}
+
+
+@media (max-width:766px){
+    .overlay-left{
+        top:0;
+        left:0;
+        clip-path: polygon(0 0, 0 25%, 100% 50%, 100% 25%);
+    
+    }
+    .overlay-center{
+  
+        top:0;
+        left:-1px;
+        clip-path: polygon(0% 25%,0  50%, 100% 75%, 100% 50%);
+    }
+    .overlay-right{
+        top:0;
+        left:-2px;
+        clip-path: polygon(0% 50%, 0% 75%, 100% 100%, 100% 75%);
+    }
+
+}
+
+
+@media (min-width:767px){
+    .overlay-left{
+ 
+        top:0;
+        left:0;
+        clip-path: polygon(0 0, 25% 0, 50% 100%, 25% 100%);
+    
+    }
+    .overlay-center{
+  
+        top:0;
+        left:-1px;
+        clip-path: polygon(25% 0%, 50% 0, 75% 100%, 50% 100%);
+    }
+    .overlay-right{
+        top:0;
+        left:-2px;
+        clip-path: polygon(50% 0%, 75% 0, 100% 100%, 75% 100%);
+    }
+}
+
+
+
